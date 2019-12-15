@@ -19,8 +19,14 @@ export class MovieCard extends Component {
   async onSubmit(e) {
     e.preventDefault();
     //this.setState({ loading: true });
-
-    await this.props.importTVShow(this.props.movie);
+    //await this.props.importTVShow(this.props.movie);
+    await axios
+    .post(`http://127.0.0.1:5000/tv_shows/create`, {
+      title: this.props.movie.original_name,
+      rating: this.props.movie.vote_average,
+      description: this.props.movie.overview,
+      TMDB_ID: this.props.movie.id
+    })
     await this.props.fetchTVShows();
     //this.setState({ loading: false });
     console.log(this.state);

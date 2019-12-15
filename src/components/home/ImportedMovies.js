@@ -18,7 +18,8 @@ export class ImportedMovies extends Component {
   };
 
   render() {
-    const imported_shows = this.props.shows.imported_shows.shows;
+    const imported_shows = this.props.shows
+    
     const columns = [
       {
         title: "TMDB_ID",
@@ -70,7 +71,7 @@ export class ImportedMovies extends Component {
 }
 
 const mapStateToProps = state => ({
-  shows: state,
+  shows: state.imported_shows.shows
 });
 
 export default connect(mapStateToProps, {
