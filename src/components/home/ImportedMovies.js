@@ -2,22 +2,24 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 import { Table, Divider, Tag, Button } from "antd";
-import { fetchTVShows } from "../../actions/importsActions";
+import { fetchTVShows, deleteTVShow } from "../../actions/importsActions";
 
 import "antd/dist/antd.css";
 
 export class ImportedMovies extends Component {
-
   componentDidMount() {
     this.props.fetchTVShows();
   }
 
   onDeleteShow = (key, e) => {
+    debugger;
     e.preventDefault();
-  }
+    this.props.deleteTVShow(key);
+    this.props.fetchTVShows();
+  };
 
   render() {
-    const imported_shows  = this.props.shows.imported_shows.shows;
+    const imported_shows = this.props.shows.imported_shows.shows;
 
     const columns = [
       {
@@ -41,23 +43,26 @@ export class ImportedMovies extends Component {
         render: (text, record) => (
           <Button
             // className={`${this.props.className}-delete`}
-            onClick={(e) => { this.onDeleteShow(record.id, e); }}
+            onClick={e => {
+              this.onDeleteShow(record.id, e);
+            }}
           >
             Delete
           </Button>
-        ),
+        )
       }
     ];
 
-    const data = imported_shows.map((show, index) => (
-        {key: index, id : show.TMDB_ID, title: show.title, rating: show.rating} 
-      ));
+    const data = imported_shows.map((show, index) => ({
+      key: index,
+      id: show.TMDB_ID,
+      title: show.title,
+      rating: show.rating,
+    }));
 
     return (
       <div className="jumbotron jumbotron-fluid mt-5 text-center">
-        <h1 className="display-4 mb-3">
-          Imported Shows
-        </h1>
+        <h1 className="display-4 mb-3">Imported Shows</h1>
         <div className="container">
           <Table columns={columns} dataSource={data} />
         </div>
@@ -67,9 +72,10 @@ export class ImportedMovies extends Component {
 }
 
 const mapStateToProps = state => ({
-  shows: state,
+  shows: state
 });
 
 export default connect(mapStateToProps, {
-  fetchTVShows
+  fetchTVShows,
+  deleteTVShow
 })(ImportedMovies);

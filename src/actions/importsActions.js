@@ -15,25 +15,6 @@ export const importTVShow = data => dispatch => {
       console.log(response);
     })
     .catch(err => console.log(err));
-
-  // var bodyFormData = new FormData();
-  // bodyFormData.set('title', 'testtitle');
-
-  // axios({
-  //   method: 'post',
-  //   url: 'http://127.0.0.1:5000/tv_shows/create',
-  //   data: 'bodyFormData',
-  //   headers: {contentType: 'application/json'}
-  //   })
-  //   .then(function (response) {
-  //       //handle success
-  //       console.log(response);
-  //   })
-  //   .catch(function (response) {
-  //       //handle error
-  //       console.log(response);
-  //   });
-
 };
 
 export const fetchTVShows = text => dispatch => {
@@ -45,5 +26,14 @@ export const fetchTVShows = text => dispatch => {
         payload: response.data
       })
     )
+    .catch(err => console.log(err));
+};
+
+export const deleteTVShow = id => dispatch => {
+  axios
+    .delete(`http://127.0.0.1:5000/tv_shows/delete/${id}`)
+    .then(function (response) {
+      console.log(response);
+    })
     .catch(err => console.log(err));
 };
