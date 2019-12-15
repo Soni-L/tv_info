@@ -13,12 +13,12 @@ export default function(state = initialState, action) {
     case IMPORT_TV_SHOW:
       return {
         ...state,
-        imported_shows: action.payload,
+        shows: action.payload,
       };
       case FETCH_IMPORTED_TV_SHOWS:
       return {
         ...state,
-        imported_shows: action.payload,
+        shows: action.payload,
       };
     default:
       return state;

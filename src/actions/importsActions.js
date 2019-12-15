@@ -45,8 +45,5 @@ export const fetchTVShows = text => dispatch => {
         payload: response.data
       })
     )
-    // .then(function (response) {
-    //   console.log(response);
-    // })
     .catch(err => console.log(err));
 };
