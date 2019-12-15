@@ -17,8 +17,10 @@ export class Landing extends Component {
           <SearchForm />
           {loading ? <Spinner /> : <MoviesContainer />}
         </div>
-        <div className="col-md-4 col-right" style={{ display: "inline-block" }}>
-          <ImportedMovies />
+        <div className="col-md-4 col-right" style={{ display: "inline-block"}}>
+          <div style={{ position: "fixed", width: 'auto' }}>
+            <ImportedMovies />
+          </div>
         </div>
       </div>
     );
