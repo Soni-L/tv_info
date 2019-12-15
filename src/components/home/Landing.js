@@ -12,16 +12,14 @@ export class Landing extends Component {
   render() {
     const { loading } = this.props;
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md6">
-            <SearchForm />
-            {loading ? <Spinner /> : <MoviesContainer />}
-          </div>
+      <div className="row">
+        <div className="col-md-8 col-left" style={{ display: "inline-block" }}>
+          <SearchForm />
+          {loading ? <Spinner /> : <MoviesContainer />}
         </div>
-        <div className="row">
-            <div><ImportedMovies /></div>
-          </div>
+        <div className="col-md-4 col-right" style={{ display: "inline-block" }}>
+          <ImportedMovies />
+        </div>
       </div>
     );
   }

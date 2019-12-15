@@ -9,16 +9,8 @@ export class MovieRow extends Component {
     console.log({ showdata: shows });
     return (
       <div className="row">
-        <table>
-          <tr>
-            <th>ID</th>
-            <td>{shows.show.TMDB_ID}</td>
-          </tr>
-          <tr>
-            <th>Title</th>
-            <td>{shows.show.title}</td>
-          </tr>
-        </table>
+        <td>{shows.show.TMDB_ID}</td>
+        <td>{shows.show.title}</td>
       </div>
     );
   }
