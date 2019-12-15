@@ -19,10 +19,11 @@ export class MovieCard extends Component {
   async onSubmit(e) {
     e.preventDefault();
     //this.setState({ loading: true });
+
     await this.props.importTVShow(this.props.movie);
     await this.props.fetchTVShows();
     //this.setState({ loading: false });
-    debugger;
+    console.log(this.state);
   }
 
   render() {

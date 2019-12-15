@@ -12,7 +12,6 @@ export class ImportedMovies extends Component {
   }
 
   onDeleteShow = (key, e) => {
-    debugger;
     e.preventDefault();
     this.props.deleteTVShow(key);
     this.props.fetchTVShows();
@@ -20,7 +19,6 @@ export class ImportedMovies extends Component {
 
   render() {
     const imported_shows = this.props.shows.imported_shows.shows;
-
     const columns = [
       {
         title: "TMDB_ID",
@@ -72,7 +70,7 @@ export class ImportedMovies extends Component {
 }
 
 const mapStateToProps = state => ({
-  shows: state
+  shows: state,
 });
 
 export default connect(mapStateToProps, {

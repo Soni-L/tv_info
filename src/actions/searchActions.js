@@ -1,4 +1,4 @@
-import { SEARCH_MOVIE, SEARCH_TMDB_MOVIE,  FETCH_TMDB_MOVIES,  FETCH_TMDB_MOVIE, LOADING } from './types';
+import { SEARCH_MOVIE, FETCH_TMDB_MOVIES,  FETCH_TMDB_MOVIE, LOADING } from './types';
 import axios from 'axios';
 
 import { APIKey, TMDBKey } from '../APIKey';
@@ -6,13 +6,6 @@ import { APIKey, TMDBKey } from '../APIKey';
 export const searchMovie = text => dispatch => {
   dispatch({
     type: SEARCH_MOVIE,
-    payload: text
-  });
-};
-
-export const searchTMDBMovie = text => dispatch => {
-  dispatch({
-    type: SEARCH_TMDB_MOVIE,
     payload: text
   });
 };
